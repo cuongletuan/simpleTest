@@ -1,0 +1,13 @@
+<suite name="Test Suite">
+    <listeners>
+        <listener class-name="listeners.ScreenShootListener"/>
+    </listeners>
+
+    <test name="Regression Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="scripts.Login">
+            </class>
+        </classes>
+    </test>
+</suite>

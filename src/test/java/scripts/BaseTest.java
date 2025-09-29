@@ -23,5 +23,7 @@ public class BaseTest {
         driver.get("https://wallet.moonstake.io");
         logger.info("Navigated to test site: https://wallet.moonstake.io");
     }
-
+    public WebDriver getDriver() {
+        return driver;
+    }
 }
