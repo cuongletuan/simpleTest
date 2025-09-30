@@ -14,6 +14,15 @@ public class Login extends BaseTest{
         loginPage.inputPass("Pass@@123BCA181");
         loginPage.loginButton();
     }
+    @Test
+    public void checkValidation(){
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.inputMail("");
+        loginPage.inputPass("");
+        loginPage.loginButton();
+        loginPage.checkValidationEmailEmpty();
+        loginPage.checkValidationPassEmpty();
+    }
 
     @AfterMethod
     public void quit(){
