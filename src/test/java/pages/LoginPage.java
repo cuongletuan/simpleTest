@@ -1,7 +1,10 @@
 package pages;
 
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+
+import static org.testng.AssertJUnit.assertEquals;
 
 public class LoginPage {
     private Page page;
@@ -21,10 +24,9 @@ public class LoginPage {
     public void loginButton(){
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("LOG IN")).click();
     }
-    public void checkValidationEmailEmpty(){
-
-    }
-    public void checkValidationPassEmpty(){
-
+    public void checkValidationEmpty(){
+        Locator checkEmpty = page.getByText("Specify the \"email\" value.");
+        String actualError = checkEmpty.innerText();
+        assertEquals("Specify the \"email\" value.", actualError.trim(), "Validation message mismatch!");
     }
 }

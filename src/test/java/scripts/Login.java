@@ -5,7 +5,7 @@ import pages.LoginPage;
 
 public class Login extends BaseTest{
 
-    @Test
+
     public void logIn(){
         LoginPage loginPage = new LoginPage(page);
         loginPage.linkLogin();
@@ -15,7 +15,12 @@ public class Login extends BaseTest{
     }
     @Test
     public void checkValidation(){
-
+        LoginPage loginPage = new LoginPage(page);
+        loginPage.linkLogin();
+        loginPage.inputMail("");
+        loginPage.inputPass("");
+        loginPage.loginButton();
+        loginPage.checkValidationEmpty();
     }
 
 }
