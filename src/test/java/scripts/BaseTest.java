@@ -4,6 +4,9 @@ import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.WaitUntilState;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInfo;
+
+import java.nio.file.Paths;
 
 public class BaseTest {
     protected Playwright playwright;
@@ -25,7 +28,15 @@ public class BaseTest {
                         .setWaitUntil(WaitUntilState.DOMCONTENTLOADED));
     }
     @AfterEach
-    public void tearDown() {
+    public void tearDown(TestInfo testInfo) {
+        try {
+            page.screenshot(new Page.ScreenshotOptions()
+                    .setPath(Paths.get("screenshots/" + testInfo.getDisplayName() + ".png"))
+                    .setFullPage(true));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         if (browser != null) browser.close();
         if (playwright != null) playwright.close();
     }
