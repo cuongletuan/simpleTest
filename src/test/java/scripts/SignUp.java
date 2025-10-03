@@ -1,12 +1,14 @@
 package scripts;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
+import pages.AuthPage;
 
 public class SignUp extends BaseTest{
 
     @Test
-    public void signUp() throws InterruptedException {
-
+    public void signUp(){
+        AuthPage signUp = new AuthPage(page);
+        signUp.linkLogin();
+        signUp.linkSignUp();
     }
-
 }

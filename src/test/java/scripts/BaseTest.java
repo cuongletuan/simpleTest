@@ -1,9 +1,9 @@
 package scripts;
 
 import com.microsoft.playwright.*;
+import com.microsoft.playwright.options.WaitUntilState;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 public class BaseTest {
     protected Playwright playwright;
@@ -19,7 +19,10 @@ public class BaseTest {
         );
         context = browser.newContext();
         page = context.newPage();
-        page.navigate("https://ozdesignfurniture.com.au/");
+        page.navigate("https://ozdesignfurniture.com.au/",
+                new Page.NavigateOptions()
+                        .setTimeout(60000)
+                        .setWaitUntil(WaitUntilState.DOMCONTENTLOADED));
     }
     @AfterEach
     public void tearDown() {
