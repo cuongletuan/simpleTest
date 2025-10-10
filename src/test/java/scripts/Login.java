@@ -1,13 +1,13 @@
 package scripts;
 
 import org.junit.jupiter.api.Test;
-import pages.AuthPage;
+import pages.LoginPage;
 
 public class Login extends BaseTest{
 
-
+    @Test
     public void logIn(){
-        AuthPage loginPage = new AuthPage(page);
+        LoginPage loginPage = new LoginPage(page);
         loginPage.linkLogin();
         loginPage.inputMail("test01@gmail.com");
         loginPage.inputPass("123456");
@@ -15,7 +15,7 @@ public class Login extends BaseTest{
     }
     @Test
     public void checkValidation(){
-        AuthPage loginPage = new AuthPage(page);
+        LoginPage loginPage = new LoginPage(page);
         loginPage.linkLogin();
         loginPage.inputMail("");
         loginPage.inputPass("");

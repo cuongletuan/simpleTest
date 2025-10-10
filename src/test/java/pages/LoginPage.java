@@ -6,24 +6,25 @@ import com.microsoft.playwright.options.AriaRole;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class AuthPage {
+public class LoginPage {
     private Page page;
 
-    public AuthPage(Page page){
+    public LoginPage(Page page){
         this.page = page;
     }
     public void linkLogin(){
         page.locator("ul.links li").nth(3).click();
     }
-    public void linkSignUp(){
+    public void linkSignUp() {
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Register Now")).click();
     }
     public void inputMail(String email){
-        page.locator("input[type='text'][id='email']").fill(email);
+        page.locator("input[type='email'][id='email']").fill(email);
     }
     public void inputPass(String pass){
         page.locator("input[type='password'][id='password']").fill(pass);
     }
+
     public void loginButton(){
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("LOG IN")).click();
     }
