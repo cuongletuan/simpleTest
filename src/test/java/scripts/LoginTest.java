@@ -7,10 +7,6 @@ import pages.LoginPage;
 public class LoginTest extends BaseTest{
 
     @Test
-    public void forceFail(){
-        org.testng.Assert.fail("CI check");
-    }
-    @Test
     public void testLogIn(){
 
         LoginPage loginPage = new LoginPage(driver);
@@ -26,6 +22,16 @@ public class LoginTest extends BaseTest{
         loginPage.loginButton();
         loginPage.checkValidationEmailEmpty();
         loginPage.checkValidationPassEmpty();
+    }
+
+    @Test
+    public void sanityTest() {
+        assert true;
+    }
+
+    @Test
+    public void failTest() {
+        org.testng.Assert.fail("Fail by design");
     }
 
     @AfterMethod
