@@ -4,7 +4,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
-public class Login extends BaseTest{
+public class LoginTest extends BaseTest{
 
     @Test
     public void logIn(){

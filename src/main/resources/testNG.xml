@@ -6,7 +6,7 @@
     <test name="Regression Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="scripts.Login">
+            <class name="scripts.LoginTest">
             </class>
         </classes>
     </test>

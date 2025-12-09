@@ -4,7 +4,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.SignUpPage;
 
-public class SignUp extends BaseTest{
+public class SignUpTest extends BaseTest{
 
     @Test
     public void signUp() throws InterruptedException {

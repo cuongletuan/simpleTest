@@ -3,13 +3,13 @@
 
     <test name="Login Test">
         <classes>
-            <class name="scripts.Login"/>
+            <class name="scripts.LoginTest"/>
         </classes>
     </test>
 
     <test name="Signup Test">
         <classes>
-            <class name="scripts.SignUp"/>
+            <class name="scripts.SignUpTest"/>
         </classes>
     </test>
 
