@@ -10,7 +10,7 @@ public class LoginPage {
         this.driver = driver;
     }
     public void inputMail(String email){
-        driver.findElement(By.xpath("//input[@id='Email']")).sendKeys(email);
+        driver.findElement(By.xpath("//input[@id='']")).sendKeys(email);
     }
     public void inputPass(String pass){
         driver.findElement(By.xpath("//input[@id='AccountPassword']")).sendKeys(pass);
