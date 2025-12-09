@@ -7,6 +7,10 @@ import pages.LoginPage;
 public class LoginTest extends BaseTest{
 
     @Test
+    public void forceFail(){
+        org.testng.Assert.fail("CI check");
+    }
+    @Test
     public void testLogIn(){
 
         LoginPage loginPage = new LoginPage(driver);
