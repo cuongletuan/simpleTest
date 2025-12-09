@@ -8,21 +8,21 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-      # 1. Lấy code từ GitHub
+      # 1. Checkout code
       - name: Checkout source code
         uses: actions/checkout@v4
 
-      # 2. Cài Java
+      # 2. Setup Java
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '21'
 
-      # 3. Cache thư viện Maven
+      # 3. Cache Maven dependencies
       - name: Cache Maven packages
         uses: actions/cache@v4
         with:
@@ -31,15 +31,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      # 4. Run Tests
+      # 4. Install Google Chrome
+      - name: Install Chrome
+        run: choco install googlechrome -y
+
+      # 5. Run Selenium Tests
       - name: Run Selenium Tests
         run: mvn clean test
 
-      # 5. Chạy Selenium test
-      - name: Run Selenium Tests
-        run: mvn clean test
-
-      # 6. Upload report
+      # 6. Upload Surefire report
       - name: Upload Test Report
         if: always()
         uses: actions/upload-artifact@v4
@@ -47,7 +47,7 @@ jobs:
           name: test-report
           path: target/surefire-reports
 
-      # 7. Upload screenshot
+      # 7. Upload screenshots
       - name: Upload Screenshots
         if: always()
         uses: actions/upload-artifact@v4
