@@ -7,7 +7,7 @@ import pages.SignUpPage;
 public class SignUpTest extends BaseTest{
 
     @Test
-    public void signUp() throws InterruptedException {
+    public void testSignUp() throws InterruptedException {
         SignUpPage signUpPage = new SignUpPage(driver);
         signUpPage.linkSignUp();
         Thread.sleep(3000);

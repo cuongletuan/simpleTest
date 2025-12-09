@@ -7,7 +7,7 @@ import pages.LoginPage;
 public class LoginTest extends BaseTest{
 
     @Test
-    public void logIn(){
+    public void testLogIn(){
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.inputMail("cuonglt@blockchainlabs.asia");
@@ -15,7 +15,7 @@ public class LoginTest extends BaseTest{
         loginPage.loginButton();
     }
     @Test
-    public void checkValidation(){
+    public void testCcheckValidation(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.inputMail("");
         loginPage.inputPass("");
